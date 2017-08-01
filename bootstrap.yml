@@ -1,0 +1,8 @@
+---
+- name: Install docker.ubuntu
+  hosts: all
+  pre_tasks:
+    - name: be sure that gnupg will be imported
+      apt: name=gnupg-curl state=installed
+  roles:
+    - angstwad.docker_ubuntu
