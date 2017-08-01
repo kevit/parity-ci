@@ -4,5 +4,7 @@
   pre_tasks:
     - name: be sure that gnupg will be imported
       apt: name=gnupg-curl state=installed
+    - name: be sure that git is presented
+      apt: name=git state=installed
   roles:
     - angstwad.docker_ubuntu
