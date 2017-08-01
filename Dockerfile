@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 WORKDIR /build
 
+ARG rust_version
+
 # install tools and dependencies
 RUN apt-get update && \
         apt-get install -y \
@@ -15,7 +17,7 @@ RUN apt-get update && \
         libudev-dev
 
 # install rustup
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN  curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain $rust_version -y
 
 # rustup directory
 ENV PATH /root/.cargo/bin:$PATH
